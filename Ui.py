@@ -1,6 +1,18 @@
 import pygame as pg
 from pygame.math import Vector2
 
+def dotline(screen,start:tuple[int,int],end:tuple[int,int]):
+    sx = start[0]
+    sy = start[1]
+    ex = end[0]
+    ey = end[1]
+
+    Vec = Vector2(ex,ey) - Vector2(sx,sy)
+    nVec = Vec.normalize()
+
+    for i in range(int(Vec.magnitude()//10)):
+        pg.draw.circle(screen,'#222222',tuple(Vector2(sx,sy) + nVec * 10 * i),2)
+
 
 class Ui():
     def __init__(self):

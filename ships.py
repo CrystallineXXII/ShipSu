@@ -1,6 +1,7 @@
 import pygame as pg
 from pygame.math import Vector2
 import math
+from Ui import dotline
 
 
 
@@ -72,4 +73,13 @@ class Ship():
             else:
                 self.tempimg, self.rect, self.angle = self.rotate_sprite(
                     self.image, self.rect, 0, self.angle)
+        l = [tuple(self.destination)] + [tuple(i) for i in self.destque]
+        
+        for i in range(len(l)-1):
+            dotline(screen,l[i],l[i+1])
+
+        for i in self.destque:
+            pg.draw.circle(screen, 'lightblue', tuple(i), 5)
+
+        pg.draw.circle(screen, 'red', tuple(self.destination), 5)
         screen.blit(self.tempimg, self.rect)
