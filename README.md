@@ -1,3 +1,3 @@
 # ShipSu
 
-A game i m trying to make.
+A game im trying to make.
