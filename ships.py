@@ -91,7 +91,7 @@ class Ship():
 		screen.blit(self.tempimg, self.rect)
 
 		if self.name == 'Ship1':
-			if self.counter > 20:
+			if self.counter > 10:
 				self.counter = 0
 				tvec = self.target-self.pos
 				if (tvec).magnitude() < 250:
