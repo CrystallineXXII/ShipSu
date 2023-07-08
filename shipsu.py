@@ -24,7 +24,7 @@ class Bullet():
 class Ship():
 
     def __init__(self, x=0, y=0):
-        self.image = pg.image.load('ship.png').convert_alpha()
+        self.image = pg.image.load('img_assets/ship.png').convert_alpha()
         self.image = pg.transform.rotozoom(self.image, 0, 0.25)
         self.pos = Vector2(x, y)
         self.rect = self.image.get_rect(center=(x, y + 40))
