@@ -9,7 +9,7 @@
 
 ## Win Condition
 
-    timer ends.
+    timer ends and you have more points than the enemy
 
 
 
