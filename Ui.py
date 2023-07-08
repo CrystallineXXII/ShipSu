@@ -16,33 +16,27 @@ def dotline(screen,start:tuple[int,int],end:tuple[int,int]):
 
 class Ui():
     def __init__(self):
-        self.pos = Vector2(500,750)
-        self.uisurf = pg.surface.Surface((400,200))
+        self.pos = Vector2(300,650)
+        #self.uisurf = pg.surface.Surface((400,200))
     
     
-    def update(self,screen,selection,clock,font):
-        self.uisurf.fill('#000010')
-        pg.draw.polygon(self.uisurf,'white',[
-            Vector2(200,100) + Vector2(-200,50),
-            Vector2(200,100) + Vector2(-100,-50),
-            Vector2(200,100) + Vector2(100,-50),
-            Vector2(200,100) + Vector2(200,50)
+    def update(self,screen:pg.surface.Surface,selection,clock,font:pg.font.Font):
+        
+        pg.draw.polygon(screen,'white',[
+            Vector2(300,650) + Vector2(0  ,150),
+            Vector2(300,650) + Vector2(100, 50),
+            Vector2(300,650) + Vector2(300, 50),
+            Vector2(300,650) + Vector2(400,150),
         ])
-        pg.draw.polygon(self.uisurf,'#222222',[
-            Vector2(200,100) + Vector2(-200,50),
-            Vector2(200,100) + Vector2(-100,-50),
-            Vector2(200,100) + Vector2(100,-50),
-            Vector2(200,100) + Vector2(200,50)
-        ],2)
 
 
         label = font.render(f'ETA : {selection.desvec.magnitude()/(clock.get_fps()+0.01):.1f} sec(s)',1,'black')
-        rect  = label.get_rect(topleft = Vector2(100,80))
-        self.uisurf.blit(label,rect)
+        rect  = label.get_rect(topleft = Vector2(300,650) + Vector2(100,80))
+        screen.blit(label,rect)
 
         label = font.render(f'<--{selection.name.upper()}-->',1,'black')
-        rect  = label.get_rect(center = Vector2(200,70))
-        self.uisurf.blit(label,rect)
+        rect  = label.get_rect(center = Vector2(300,650) + Vector2(200,70))
+        screen.blit(label,rect)
 
 
-        return self.uisurf
+        

@@ -43,7 +43,8 @@ while not quitted:
     ship1.update(screen)
     ship2.update(screen)
     #dotline((0,0),(100,100))
-    screen.blit(ui.update(screen,selection,clock,font),ui.pos - Vector2(200,100))
+    ui.update(screen,selection,clock,font)
+    pg.draw.circle(screen,'green',(100,100),1)
     pg.display.flip()
     
 pg.quit()
